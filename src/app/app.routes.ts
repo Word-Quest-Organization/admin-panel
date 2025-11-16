@@ -1,3 +1,7 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { LoginComponent } from './auth/login/login';
+
+export const routes: Routes = [
+  { path: '', component: LoginComponent, title: 'Login - Painel Admin' }
+];
