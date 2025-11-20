@@ -1,0 +1,24 @@
+<h3>Login administrador</h3>
+<h1 style="color: red">TESTE TEMPLATE</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="email">E-mail:</label>
+    <input id="email" formControlName="email" placeholder="Digite seu email" />
+  </div>
+  <div>
+    <label for="password">Senha:</label>
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      placeholder="Digite sua senha"
+    />
+  </div>
+  <button type="submit">Iniciar sessão</button>
+</form>
+
+<div style="margin-top: 10px">
+  <span>Não tem conta?</span>
+  <a routerLink="/register">Registre-se</a>
+</div>

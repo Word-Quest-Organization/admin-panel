@@ -1,0 +1,22 @@
+<h2>Criar Nova Conta</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Nome:</label>
+    <input type="text" formControlName="name" placeholder="Seu nome completo" />
+  </div>
+
+  <div>
+    <label>Email:</label>
+    <input type="email" formControlName="email" placeholder="seu@email.com" />
+  </div>
+
+  <div>
+    <label>Senha:</label>
+    <input type="password" formControlName="password" placeholder="Crie uma senha" />
+  </div>
+
+  <button type="submit">Criar Conta</button>
+
+  <p>Já tem conta? <a routerLink="/">Fazer Login</a></p>
+</form>

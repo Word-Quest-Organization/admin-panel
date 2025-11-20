@@ -6,16 +6,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
   private API_URL = 'http://localhost:3000/api/auth';
-  constructor(private http: HttpClient) { }
-  login(email: string, password: string){
+  constructor(private http: HttpClient) {}
+  login(email: string, password: string) {
     console.log(email, password);
 
     return this.http.post(`${this.API_URL}/login`, { email, password });
   }
 
-  register(userData: any) {
-    const payload = { ...userData, role: 'ADMIN' };
-    return this.http.post(`${this.API_URL}/register`, userData);
+  register({ name, email, password }: { name: string; email: string; password: string }) {
+    return this.http.post(`${this.API_URL}/register`, {
+      name,
+      email,
+      password,
+      role: 'ADMIN',
+    });
   }
 }
-

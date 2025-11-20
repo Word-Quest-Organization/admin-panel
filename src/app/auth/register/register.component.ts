@@ -9,24 +9,22 @@ import { AuthService } from '../auth-service';
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
-  templateUrl: './register.html',
-  styleUrls: ['./register.scss'],
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
 })
-export class Register {
+export class RegisterComponent {
   registerForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder, 
-    private authService: AuthService, 
+    private fb: FormBuilder,
+    private authService: AuthService,
     private router: Router,
   ) {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      role: ['ADMIN', [Validators.required]]
     });
-
   }
 
   onSubmit() {
@@ -38,8 +36,7 @@ export class Register {
       },
       error: (error) => {
         console.error('Erro ao registrar usuário:', error);
-      }
+      },
     });
   }
 }
-  

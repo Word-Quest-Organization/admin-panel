@@ -8,8 +8,8 @@ import { AuthService } from '../auth-service';
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
-  templateUrl: './login.html',
-  styleUrls: ['./login.scss'],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -17,13 +17,13 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private router: Router) {
+    private router: Router,
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
-
 
   onSubmit() {
     console.log('Form submitted');
@@ -40,7 +40,7 @@ export class LoginComponent {
       },
       error: (error) => {
         console.error('Login failed:', error);
-      }
+      },
     });
 
     console.log('Enviando dados para o back-end:', this.loginForm.value);
